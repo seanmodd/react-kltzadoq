@@ -1,7 +1,25 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import reactToWebComponent from "react-to-webcomponent";
-
+import {
+  Box,
+  Button,
+  Heading,
+  Input,
+  Stack,
+  inputButton,
+  Flex,
+  Label,
+  Text,
+  useColorModeValue as mode,
+} from '@chakra-ui/react';
+import {
+  ChakraProvider,
+  ColorModeProvider,
+  useColorMode,
+  Flex,
+  Button,
+} from '@chakra-ui/react';
 interface State {
   count: number;
 }
@@ -16,8 +34,9 @@ export default class MyCounter extends React.Component<Props, State> {
   }
 
   render() {
-    const styles = `.my-counter * {
-          font-size: 200%;
+
+    const styles = `.my-counter * 
+          font-size: 150%;
         }
 
         .my-counter span {
@@ -26,25 +45,36 @@ export default class MyCounter extends React.Component<Props, State> {
           text-align: center;
         }
 
-        .my-counter button {
-          width: 4rem;
-          height: 4rem;
-          border: none;
-          border-radius: 10px;
-          background-color: seagreen;
-          color: white;
-        }`;
-
+`;
+const MyButton = (props) => <Button py={6} m={10} bg="blue.600" fontWeight="normal" textColor="white">{props.children}</Button>;
+const MyButtonMath = (props) => <Button py={4} m={10} bg="green.600" fontWeight="normal" textColor="white">{props.children}</Button>;
+const MyInput = () => <Input w={350} py={5} my={2} type="email" bg="gray.50"></Input>
     return (
       <div className="my-counter">
         <style>{styles}</style>
-        <button onClick={() => this.setState({ count: this.state.count - 1 })}>
+             <ChakraProvider resetCSS>
+        <Flex w="100%" h="100%" flexDirection="column" alignItems="center">
+        <Heading mt={50} fontWeight="normal">Chakra-UI Web Components Made by Sean Modd</Heading>
+        <Heading mt={50} fontSize="16px" fontWeight="normal">react-chakra-webcomponents-seanmodd</Heading>
+        <Flex h="100%" my={100} flexDirection="column" align="center">
+        <MyInput />
+        <MyInput />
+        <MyInput />
+        <MyButton>Submit!!</MyButton>
+        </Flex>
+        <Box w="100%" h="500px" alignItems="center" align="center" >
+        <MyButtonMath onClick={() => this.setState({ count: this.state.count - 1 })}>
           -
-        </button>
+        </MyButtonMath>
         <span>{this.state.count}</span>
-        <button onClick={() => this.setState({ count: this.state.count + 1 })}>
+        
+        
+        <MyButtonMath onClick={() => this.setState({ count: this.state.count + 1 })}>
           +
-        </button>
+        </MyButtonMath>
+        </Box>
+        </Flex>
+              </ChakraProvider>
       </div>
     );
   }

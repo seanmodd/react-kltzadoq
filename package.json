@@ -1,4 +1,21 @@
 {
- "name": "@wcd/seanmodd.react-kltzadoq",
- "version": "0.0.0"
+  "name": "@wcd/seanmodd.react-chakra-webcomponents-seanmodd",
+  "version": "0.0.0",
+  "description": "",
+  "license": "ISC",
+  "type": "module",
+  "homepage": "{{ homepage }}",
+  "scripts": {
+    "serve": "wcd-cli serve zsNFmL2kqDsHOqKGsJLr --open"
+  },
+  "devDependencies": {
+    "wcd-cli": "latest"
+  },
+  "dependencies": {
+    "react": "latest",
+    "@chakra-ui/react": "^1.3.3",
+    "@chakra-ui/icons": "^1.0.0-rc.8",
+    "@emotion/react": "^11.1.5",
+    "@emotion/styled": "^11.1.5"
+  }
 }
